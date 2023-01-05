@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>balloon</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+
+        }
+
+        .center {
+            height: 850px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #balloon {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            border-radius: 100px;
+        }
+
+
+
+    </style>
+</head>
+<body>
+    <div class="center">
+        <div  id="balloon"></div>
+    </div>
+
+
+
+    <script>
+        const japan = document.querySelector('#balloon');
+     
+        
+        japan.addEventListener('click', () => {
+            const width = japan.offsetWidth;
+            const height = japan.offsetHeight;
+            japan.style.width = (width + 10) + "px";
+            japan.style.height = (height + 10) + "px";
+            japan.style.borderRadius = "100%";
+            console.log({ width, height });
+            if(japan.style.backgroundColor === ""){
+               japan.style.backgroundColor = "green";
+            }
+            else if (japan.style.backgroundColor === "green"){
+                japan.style.backgroundColor = "blue";
+            }
+            else {
+                japan.style.backgroundColor = "";
+            }
+            if (width > 420 || height > 420) {
+                japan.style.width  = "200px";
+                japan.style.height = "200px";
+            }
+            if (width > 200 ) {
+            const test = japan.addEventListener('mouseout', () => {
+            japan.style.width = (width - 5) + "px";
+            japan.style.height = (height -5) + "px";
+            if(japan.style.backgroundColor === ""){
+               japan.style.backgroundColor = "blue";
+            }
+            else if (japan.style.backgroundColor === "blue"){
+                japan.style.backgroundColor = "green";
+            }
+            else if (japan.style.backgroundColor === "green"){
+                japan.style.backgroundColor = "";
+            }
+        });
+                
+            }
+        });
+    </script>
+</body>
+</html>
