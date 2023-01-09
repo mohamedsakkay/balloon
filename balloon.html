@@ -39,11 +39,12 @@
 
     <script>
         const japan = document.querySelector('#balloon');
-     
-        
+            var width; 
+            var height;
         japan.addEventListener('click', () => {
-            const width = japan.offsetWidth;
-            const height = japan.offsetHeight;
+             width = japan.offsetWidth;
+             height = japan.offsetHeight;
+             if (width < 420) {
             japan.style.width = (width + 10) + "px";
             japan.style.height = (height + 10) + "px";
             japan.style.borderRadius = "100%";
@@ -56,13 +57,17 @@
             }
             else {
                 japan.style.backgroundColor = "";
-            }
-            if (width > 420 || height > 420) {
-                japan.style.width  = "200px";
-                japan.style.height = "200px";
-            }
-            if (width > 200 ) {
-            const test = japan.addEventListener('mouseout', () => {
+            }  
+        }
+             else {
+            japan.style.width  = "200px";
+            japan.style.height = "200px";
+        }
+        });
+            japan.addEventListener('mouseout', () => {
+             width = japan.offsetWidth;
+             height = japan.offsetHeight;
+            if (width > 200 ) {   
             japan.style.width = (width - 5) + "px";
             japan.style.height = (height -5) + "px";
             if(japan.style.backgroundColor === ""){
@@ -74,9 +79,7 @@
             else if (japan.style.backgroundColor === "green"){
                 japan.style.backgroundColor = "";
             }
-        });
-                
-            }
+        }
         });
     </script>
 </body>
